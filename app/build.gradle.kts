@@ -134,10 +134,14 @@ android {
             dimension = "env"
             applicationId = "com.dev.bitchord"
             resValue("string", "app_name", "BitChord Dev")
+            // manish0467's fork ships this flavor from its own GitHub releases (see FORK.md), so its
+            // in-app updater looks there, not at upstream's releases (a different package and key).
+            buildConfigField("String", "UPDATE_REPO", "\"manish0467/BitChord\"")
         }
         create("prod") {
             dimension = "env"
             // Matches defaultConfig — this is the package already shipped/installed.
+            buildConfigField("String", "UPDATE_REPO", "\"kushagrasinghx/BitChord\"")
         }
     }
 

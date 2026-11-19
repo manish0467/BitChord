@@ -41,8 +41,11 @@ buildscript {
  * No "v" in the name — the in-app updater reads it as a number; the "v" is the
  * release tag's alone.
  */
-extra["bitchordVersionCode"] = 40
-extra["bitchordVersionName"] = "1.9.2"
+// Fork releases (manish0467/BitChord, the dev flavor) add a fourth number to upstream's version:
+// 1.9.2.1, 1.9.2.2, ... and 1.9.3.1 after merging upstream's 1.9.3. Raise the code by one every
+// release, and keep it above upstream's. See FORK.md.
+extra["bitchordVersionCode"] = 41
+extra["bitchordVersionName"] = "1.9.2.1"
 
 /*
  * Bump this by hand before cutting each sideloaded test build ("beta2",
@@ -63,7 +66,7 @@ extra["bitchordVersionName"] = "1.9.2"
  * the phone compares the watch's installed APK with the one it carries, so a
  * beta watch app shows "Update available" as soon as the phone has the release.
  */
-extra["bitchordBetaSuffix"] = "beta1"
+extra["bitchordBetaSuffix"] = ""
 
 plugins {
     id("com.android.application") version "8.10.1" apply false
